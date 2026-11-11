@@ -1,0 +1,19 @@
+{
+  "android": {
+    "allowMixedContent": false
+  },
+  "appId": "com.buckthem.town",
+  "appName": "Town",
+  "backgroundColor": "#faf7f2",
+  "ios": {
+    "contentInset": "always",
+    "preferredContentMode": "mobile",
+    "backgroundColor": "#faf7f2"
+  },
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false,
+    "url": "https://buckthem.com/town/app"
+  },
+  "webDir": "www"
+}
