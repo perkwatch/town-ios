@@ -40,6 +40,17 @@ targets:
     platform: iOS
     dependencies:
       - target: Capacitor
+    info:
+      path: CapacitorPushNotifications-Info.plist
+      properties:
+        CFBundleDevelopmentRegion: "$(DEVELOPMENT_LANGUAGE)"
+        CFBundleExecutable: "$(EXECUTABLE_NAME)"
+        CFBundleIdentifier: "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: "$(PRODUCT_NAME)"
+        CFBundlePackageType: "FMWK"
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
     sources:
       - path: ../../node_modules/@capacitor/push-notifications/ios/Sources
     settings:
@@ -55,6 +66,17 @@ targets:
     platform: iOS
     dependencies:
       - target: Capacitor
+    info:
+      path: CapacitorShare-Info.plist
+      properties:
+        CFBundleDevelopmentRegion: "$(DEVELOPMENT_LANGUAGE)"
+        CFBundleExecutable: "$(EXECUTABLE_NAME)"
+        CFBundleIdentifier: "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: "$(PRODUCT_NAME)"
+        CFBundlePackageType: "FMWK"
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
     sources:
       - path: ../../node_modules/@capacitor/share/ios/Sources
     settings:
