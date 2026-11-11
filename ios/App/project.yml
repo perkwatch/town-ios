@@ -9,12 +9,12 @@ targets:
     type: framework
     platform: iOS
     sources:
-      - path: ../node_modules/@capacitor/ios/Capacitor/Capacitor
+      - path: ../../node_modules/@capacitor/ios/Capacitor/Capacitor
     settings:
       base:
         PRODUCT_NAME: Capacitor
         PRODUCT_BUNDLE_IDENTIFIER: org.capacitor.Capacitor
-        MODULEMAP_FILE: ../node_modules/@capacitor/ios/Capacitor/Capacitor/Capacitor.modulemap
+        MODULEMAP_FILE: ../../node_modules/@capacitor/ios/Capacitor/Capacitor/Capacitor.modulemap
         DEFINES_MODULE: YES
         SWIFT_VERSION: "5.0"
         SKIP_INSTALL: YES
@@ -23,13 +23,13 @@ targets:
     type: framework
     platform: iOS
     sources:
-      - path: ../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova
+      - path: ../../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova
     settings:
       base:
         PRODUCT_NAME: Cordova
-        INFOPLIST_FILE: ../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Info.plist
+        INFOPLIST_FILE: ../../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: org.capacitor.Cordova
-        MODULEMAP_FILE: ../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/CapacitorCordova.modulemap
+        MODULEMAP_FILE: ../../node_modules/@capacitor/ios/CapacitorCordova/CapacitorCordova/CapacitorCordova.modulemap
         DEFINES_MODULE: YES
         CLANG_ENABLE_MODULES: YES
         GCC_PREPROCESSOR_DEFINITIONS: "$(inherited) SWIFT_PACKAGE=1"
@@ -41,7 +41,7 @@ targets:
     dependencies:
       - target: Capacitor
     sources:
-      - path: ../node_modules/@capacitor/push-notifications/ios/Sources
+      - path: ../../node_modules/@capacitor/push-notifications/ios/Sources
     settings:
       base:
         PRODUCT_NAME: CapacitorPushNotifications
@@ -56,7 +56,7 @@ targets:
     dependencies:
       - target: Capacitor
     sources:
-      - path: ../node_modules/@capacitor/share/ios/Sources
+      - path: ../../node_modules/@capacitor/share/ios/Sources
     settings:
       base:
         PRODUCT_NAME: CapacitorShare
