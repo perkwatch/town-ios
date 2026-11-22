@@ -45,5 +45,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.buckthem.town.presence-refresh</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
 </dict>
 </plist>

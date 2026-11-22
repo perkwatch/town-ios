@@ -13,7 +13,7 @@
   "server": {
     "androidScheme": "https",
     "cleartext": false,
-    "url": "https://buckthem.com/town/app"
+    "url": "https://imintown.app/town/app"
   },
   "webDir": "www"
 }

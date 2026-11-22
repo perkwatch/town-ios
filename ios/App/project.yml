@@ -99,8 +99,11 @@ targets:
         embed: true
       - target: CapacitorShare
         embed: true
+      - target: TownIsland
+        embed: true
     sources:
       - path: App
+      - path: Shared
     settings:
       base:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -122,3 +125,33 @@ targets:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
         Release:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: ""
+  TownIsland:
+    type: app-extension
+    platform: iOS
+    info:
+      path: TownIsland-Info.plist
+      properties:
+        CFBundleDevelopmentRegion: "$(DEVELOPMENT_LANGUAGE)"
+        CFBundleExecutable: "$(EXECUTABLE_NAME)"
+        CFBundleIdentifier: "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        CFBundleInfoDictionaryVersion: "6.0"
+        CFBundleName: "$(PRODUCT_NAME)"
+        CFBundlePackageType: "XPC!"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+    sources:
+      - path: TownIsland
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.buckthem.town.island
+        PRODUCT_NAME: TownIsland
+        CODE_SIGN_STYLE: Manual
+        PROVISIONING_PROFILE_SPECIFIER: "Town Island App Store"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "16.1"
+        TARGETED_DEVICE_FAMILY: "1,2"
