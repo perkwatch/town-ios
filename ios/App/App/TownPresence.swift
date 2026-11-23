@@ -21,7 +21,7 @@ enum TownPresenceScore {
 /// Callable from AppDelegate on any supported OS version — all ActivityKit
 /// work is hidden behind availability checks inside this file, so call sites
 /// need no annotations. The app's deployment target is iOS 15.0; Live
-/// Activities exist from iOS 16.1, and on anything older every entry point
+/// Activities exist from iOS 16.2, and on anything older every entry point
 /// here is a safe no-op (background refresh still registers/schedules).
 enum TownPresence {
 
@@ -41,9 +41,9 @@ enum TownPresence {
         syncNow()
     }
 
-    /// Kicks off an asynchronous Square sync (no-op pre-iOS 16.1).
+    /// Kicks off an asynchronous Square sync (no-op pre-iOS 16.2).
     static func syncNow() {
-        if #available(iOS 16.1, *) {
+        if #available(iOS 16.2, *) {
             TownPresenceWorker.shared.sync()
         }
     }
@@ -76,7 +76,7 @@ enum TownPresence {
             completion.finish(task: refreshTask, success: false)
         }
 
-        if #available(iOS 16.1, *) {
+        if #available(iOS 16.2, *) {
             TownPresenceWorker.shared.sync {
                 completion.finish(task: refreshTask, success: true)
             }
@@ -104,9 +104,9 @@ private final class TownPresenceCompletionBox {
     }
 }
 
-// MARK: - Worker (iOS 16.1+)
+// MARK: - Worker (iOS 16.2+)
 
-@available(iOS 16.1, *)
+@available(iOS 16.2, *)
 final class TownPresenceWorker {
 
     static let shared = TownPresenceWorker()
