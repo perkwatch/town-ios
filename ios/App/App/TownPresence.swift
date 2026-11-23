@@ -174,10 +174,15 @@ final class TownPresenceWorker {
         }
 
         // Recycle activities older than ~7 hours so the island stays fresh
-        // and inside the system's good graces.
-        if let startedAt = recordedStartDate(),
+        // and inside the system's good graces. The end + restart uses the
+        // iOS 17 end API (the pre-17 end(using:) form is gone from current
+        // SDKs); on iOS 16.x the activity is simply updated and the
+        // system's own 8-hour cap ends it — the next sync after that
+        // starts a fresh one.
+        if #available(iOS 17.0, *),
+           let startedAt = recordedStartDate(),
            Date().timeIntervalSince(startedAt) > Self.maxActivityAge {
-            await endActivity(activity)
+            await activity.end(nil, dismissalPolicy: .immediate)
             await startActivity(with: content)
         } else {
             if recordedStartDate() == nil {
@@ -198,14 +203,6 @@ final class TownPresenceWorker {
         } catch {
             // Activities may be refused (disabled, too many, etc.) — the next
             // foreground sync will try again.
-        }
-    }
-
-    private func endActivity(_ activity: Activity<TownPresenceAttributes>) async {
-        if #available(iOS 17.0, *) {
-            await activity.end(nil, dismissalPolicy: .immediate)
-        } else {
-            await activity.end(using: nil, dismissalPolicy: .immediate)
         }
     }
 
